@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DropboxSample"
+             x:Class="DropboxSample.MainPage"
+             xmlns:viewer="clr-namespace:Syncfusion.SfPdfViewer.XForms;assembly=Syncfusion.SfPdfViewer.XForms"
+             xmlns:sfPopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms">
+
+    <ContentPage.BindingContext>
+        <local:DropboxViewModel x:Name="pdfViewerBindingContext"></local:DropboxViewModel>
+    </ContentPage.BindingContext>
+
+    <sfPopup:SfPopupLayout x:Name="PopupLayout">
+        <sfPopup:SfPopupLayout.Content>
+            <Grid x:Name="MainGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{Static GridLength.Star}" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" x:Name="TopToolbar" BackgroundColor="#1777D6" HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0" x:Name="PDFViewer" Text="Syncfusion PDF Viewer" Margin="5,0,0,0" TextColor="White" FontSize="Medium" VerticalOptions="Center"></Label>
+                        <Button Grid.Column="1" Grid.Row="0" x:Name="FilesDirectoryButton" BackgroundColor="Transparent" FontSize="48" TextColor="White" Image="FileDirectory.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="FilesDirectoryButton_Clicked"></Button>
+                    </Grid>
+                    <Grid Grid.Row="1" x:Name="PdfViewerGrid">
+                        <viewer:SfPdfViewer x:Name="pdfViewerControl" DocumentSaveInitiated="pdfViewerControl_DocumentSaveInitiated" InputFileStream="{Binding PdfDocumentStream}" />
+                    </Grid>
+                </Grid>
+            </Grid>
+        </sfPopup:SfPopupLayout.Content>
+    </sfPopup:SfPopupLayout>
+
+</ContentPage>

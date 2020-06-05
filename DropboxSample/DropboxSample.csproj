@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="credentials.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="credentials.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dropbox.Api" Version="4.10.0" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.1.0.53" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="18.1.0.53" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout" Version="18.1.0.53" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.396" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.xaml.cs">
+      <DependentUpon>*.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="MainPage.xaml.cs">
+      <DependentUpon>*.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="DropboxFilesListView.xaml.cs">
+      <DependentUpon>DropboxFilesListView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>
