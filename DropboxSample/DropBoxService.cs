@@ -14,9 +14,9 @@ namespace DropboxSample
     {
         #region Constants
 
-        private const string ClientId = "duun7k6npe52kcq";
+        private const string ClientId = "Your App secret key";
 
-        private const string RedirectUri = "https://localhost/authorize";
+        private const string RedirectUri = "Your Redirect Uri";
 
         #endregion
 
