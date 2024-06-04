@@ -102,7 +102,6 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="credentials.json" />
-    <None Include="GettingStarted.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="FileDirectory.png" />
